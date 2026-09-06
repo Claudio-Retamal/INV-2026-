@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('salas', function (Blueprint $table) {
+        Schema::create('unidad_medidas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->boolean('estado');
+            $table->string('abreviatura');
+            $table->string('estado');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('salas');
+        Schema::dropIfExists('unidad_medidas');
     }
 };

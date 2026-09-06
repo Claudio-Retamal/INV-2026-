@@ -11,17 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('impresoras', function (Blueprint $table) {
+        Schema::create('categorias_insumos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('marca');
-            $table->string('modelo');
-            $table->string('serie');
-            $table->string('tipo_impresora');
-            $table->date('fecha_ingreso');
-            $table->string('ubicacion');
-            $table->string('estado_impresora');
-            $table->boolean('estado')->default(true);
+            $table->boolean('estado');
             $table->timestamps();
         });
     }
@@ -31,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('impresoras');
+        Schema::dropIfExists('categorias_insumos');
     }
 };

@@ -13,20 +13,17 @@ return new class extends Migration
     {
         Schema::create('insumos', function (Blueprint $table) {
             $table->id();
-
             $table->string('codigo')->unique();
             $table->string('nombre');
             $table->string('marca')->nullable();
             $table->string('modelo')->nullable();
-
-            $table->foreignId('tipo_insumos_id')
+             $table->foreignId('tipo_insumos_id')
                 ->constrained('tipo_insumos')
                 ->cascadeOnUpdate()
                 ->restrictOnDelete();
 
             $table->string('color')->nullable();
             $table->string('unidad_medida');
-
             $table->decimal('stock_actual', 10, 2)->default(0);
             $table->decimal('stock_minimo', 10, 2)->default(0);
             $table->decimal('stock_maximo', 10, 2)->default(0);

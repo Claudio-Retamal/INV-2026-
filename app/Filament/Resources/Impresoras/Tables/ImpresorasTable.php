@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Impresoras\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -15,7 +16,13 @@ class ImpresorasTable
     {
         return $table
             ->columns([
+
+                TextColumn::make('codigo')
+                    ->searchable(),
                 TextColumn::make('nombre')
+                    ->searchable(),
+
+                TextColumn::make('marca')
                     ->searchable(),
                 TextColumn::make('modelo')
                     ->searchable(),
@@ -23,10 +30,6 @@ class ImpresorasTable
                     ->searchable(),
                 TextColumn::make('tipo_impresora')
                     ->searchable(),
-                TextColumn::make('insumo.nombre')
-                    ->label('Insumo')
-                    ->searchable()
-                    ->sortable(),
                 TextColumn::make('fecha_ingreso')
                     ->date()
                     ->sortable(),
