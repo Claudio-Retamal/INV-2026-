@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('marca')->nullable();
             $table->string('modelo')->nullable();
-             $table->foreignId('tipo_insumos_id')
+            $table->foreignId('tipo_insumos_id')
                 ->constrained('tipo_insumos')
                 ->cascadeOnUpdate()
                 ->restrictOnDelete();
