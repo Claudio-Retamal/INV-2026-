@@ -1,31 +1,23 @@
 <?php
 
-namespace App\Filament\Resources\Personals\Tables;
+namespace App\Filament\Resources\CategoriasInsumos\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class PersonalsTable
+class CategoriasInsumosTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('nombres')
+                TextColumn::make('nombre')
                     ->searchable(),
-                TextColumn::make('apellidos')
-                    ->searchable(),
-                TextColumn::make('cargo')
-                    ->searchable(),
-                TextColumn::make('email')
-                    ->label('Email address')
-                    ->searchable(),
-                TextColumn::make('telefono')
+                TextColumn::make('descripcion')
                     ->searchable(),
                 IconColumn::make('estado')
                     ->boolean(),
@@ -42,7 +34,6 @@ class PersonalsTable
                 //
             ])
             ->recordActions([
-                ViewAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([

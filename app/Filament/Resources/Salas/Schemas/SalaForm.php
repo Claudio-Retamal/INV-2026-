@@ -14,6 +14,8 @@ class SalaForm
             ->components([
                 TextInput::make('nombre')
                     ->required(),
+                TextInput::make('descripcion')
+                    ->required(),
                 Toggle::make('estado')
                     ->required(),
             ]);

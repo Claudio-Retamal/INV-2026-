@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Resources\TipoInsumos\Schemas;
+namespace App\Filament\Resources\CategoriasInsumos\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
-class TipoInsumoForm
+class CategoriasInsumoForm
 {
     public static function configure(Schema $schema): Schema
     {
@@ -14,7 +14,6 @@ class TipoInsumoForm
             ->components([
                 TextInput::make('nombre')
                     ->required(),
-
                 TextInput::make('descripcion')
                     ->required(),
                 Toggle::make('estado')

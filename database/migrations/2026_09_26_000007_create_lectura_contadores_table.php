@@ -12,6 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lectura_contadores', function (Blueprint $table) {
+
+        //integrar smtp
             $table->id();
             $table->timestamps();
         });

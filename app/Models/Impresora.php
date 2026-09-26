@@ -2,26 +2,37 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Impresora extends Model
 {
-    use HasFactory;
-
     protected $table = 'impresoras';
 
     protected $fillable = [
+
+        'codigo_interno',
         'nombre',
         'marca',
         'modelo',
         'serie',
         'tipo_impresora',
+        'ip',
+        'contador_inicial',
+        'contador_actual',
         'fecha_ingreso',
-        'ubicacion',
-        'estado_impresora',
-        'estado',
+        'sala_id',
+        'estado_impresora_id',
+        'estado'
     ];
 
+    public function sala(): BelongsTo
+    {
+        return $this->belongsTo(Sala::class);
+    }
+
+    public function estadoImpresora(): BelongsTo
+    {
+        return $this->belongsTo(EstadoImpresora::class);
+    }
 }

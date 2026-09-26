@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('abreviatura');
-            $table->string('estado');
+            $table->string('estado')->default(true);
             $table->timestamps();
         });
     }

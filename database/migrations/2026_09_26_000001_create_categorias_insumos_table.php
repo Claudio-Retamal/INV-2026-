@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('categorias_insumos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->boolean('estado');
+            $table->string('descripcion');
+            $table->boolean('estado')->default(true);
             $table->timestamps();
         });
     }

@@ -17,6 +17,8 @@ class SalasTable
             ->columns([
                 TextColumn::make('nombre')
                     ->searchable(),
+                TextColumn::make('descripcion')
+                    ->searchable(),
                 IconColumn::make('estado')
                     ->boolean(),
                 TextColumn::make('created_at')

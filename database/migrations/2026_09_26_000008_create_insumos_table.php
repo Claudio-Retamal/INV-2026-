@@ -17,13 +17,23 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('marca')->nullable();
             $table->string('modelo')->nullable();
-            $table->foreignId('tipo_insumos_id')
-                ->constrained('tipo_insumos')
-                ->cascadeOnUpdate()
-                ->restrictOnDelete();
+            // $table->foreignId('categorias_insumos_id')->constrained('id')->cascadeOnUpdate()->restrictOnDelete();
+
+            $table->foreignId('categorias_insumos_id')
+                ->nullable() // Permite que un post no tenga usuario
+                ->constrained()
+                ->nullOnDelete(); // Si el usuario se borra, el post conserva su valor pero con user_id = null
+
+                
+
+            $table->foreignId('unidad_medidas_id')
+                ->nullable() // 
+                ->constrained()
+                ->nullOnDelete(); // 
 
             $table->string('color')->nullable();
-            $table->string('unidad_medida');
+
+
             $table->decimal('stock_actual', 10, 2)->default(0);
             $table->decimal('stock_minimo', 10, 2)->default(0);
             $table->decimal('stock_maximo', 10, 2)->default(0);

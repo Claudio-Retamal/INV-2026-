@@ -20,22 +20,26 @@ class Insumo extends Model
         'nombre',
         'marca',
         'modelo',
-        'tipo_insumos_id',
+        'categorias_insumos_id',
+        'unidad_medidas_id',
         'color',
-        'unidad_medida',
         'stock_actual',
         'stock_minimo',
         'stock_maximo',
         'estado',
     ];
 
-    public function tipoInsumo(): BelongsTo
+    public function categoriasInsumo()
     {
-        return $this->belongsTo(
-            TipoInsumo::class,
-            'tipo_insumos_id'
-        );
+        return $this->belongsTo(CategoriasInsumo::class, 'categorias_insumos_id');
     }
+
+
+     public function unidadMedida()
+    {
+        return $this->belongsTo(unidadMedida::class, 'unidad_medidas_id');
+    }
+
 
     public function impresoras(): BelongsToMany
     {
