@@ -53,4 +53,9 @@ class Insumo extends Model
             'activo',
         ]);
     }
+
+      public function movimientosInsumos(): HasMany
+    {
+        return $this->hasMany(MovimientosInsumo::class, 'movimientos_insumos_id');
+    }
 }

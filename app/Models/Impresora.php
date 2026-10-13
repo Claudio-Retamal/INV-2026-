@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Impresora extends Model
 {
@@ -18,6 +19,7 @@ class Impresora extends Model
         'serie',
         'tipo_impresora',
         'ip',
+        'mac',
         'contador_inicial',
         'contador_actual',
         'fecha_ingreso',
@@ -34,5 +36,11 @@ class Impresora extends Model
     public function estadoImpresora(): BelongsTo
     {
         return $this->belongsTo(EstadoImpresora::class);
+    }
+
+    
+     public function movimientosInsumos(): HasMany
+    {
+        return $this->hasMany(MovimientosInsumo::class, 'movimientos_insumos_id');
     }
 }

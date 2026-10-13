@@ -24,6 +24,12 @@ class Sala extends Model
     {
         return $this->hasMany(Impresora::class);
     }
+
+    
+     public function movimientosInsumos(): HasMany
+    {
+        return $this->hasMany(MovimientosInsumo::class, 'impresora_id');
+    }
 }
 
 
